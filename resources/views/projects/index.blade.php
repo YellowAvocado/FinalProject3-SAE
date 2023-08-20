@@ -1,40 +1,39 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Projects') }}
-        </h2>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid">
-                <div class="grid gap-4 justify-between">
+                <div class="grid gap-10 justify-center w-90">
                     @foreach($projects as $project)
+                        {{--@foreach($types as $type)--}}
                         <div class="bg-white bg-clip-border text-gray-700" >
-                            <div class="m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none">
+                            <div class="m-6 overflow-hidden bg-transparent bg-clip-border text-gray-700 shadow-none">
                                 <img src="{{ $project->image }}">
                             </div>
                             <div class="p-6">
                                 <h4 class="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-700 antialiased">
-                                    Title {{ $project->title }}
+                                    <span class="text-blue-gray-500">{{ $project->title }}</span>
                                 </h4>
-                                <h4 class="block font-sans text-2xl leading-snug tracking-normal text-blue-gray-900 antialiased">
-                                    short title{{ $project->short_title }}
+                                <h4 class="block font-sans text-l leading-snug tracking-normal text-amber-600 antialiased">
+                                    {{ $project->short_title }}
                                 </h4>
-                                <h4 class="block font-sans text-2xl leading-snug tracking-normal text-blue-gray-900 antialiased">
-                                    type {{ $project->type_id}}
+                                <h4 class="block font-sans text-2xl leading-snug tracking-normal text-blue-gray-700 antialiased">
+                                    <span class="text-amber-600">{{ $project->type->type }} project</span>
                                 </h4>
-                                <p class="mt-3 block font-sans text-xl font-normal leading-relaxed text-gray-700 antialiased">
-                                <p >{{ $project->description}}</p>
+                                <p class="w-96 mt-6 ml-3 block font-sans text-xl font-normal leading-relaxed text-gray-700 antialiased">
+                                {{ $project->description}}
                                 </p>
                             </div>
                             <div class="flex items-center justify-between p-6">
-                                <div class="flex items-center -space-x-3">
-
-                                </div>
                                 <a href="{{ route('projects.show', $project->id ) }}">Show this project</a>
+                                <a href="{{ route('projects.edit', $project->id ) }}">Edit this project</a>
+                                <form class="text-red-700" action="{{route('projects.destroy', $project->id)}}" method="POST">
+                                    @csrf
+                                    @method("DELETE")
+                                    <button type="submit" onclick="return confirm('Do you want to delete this project');">Delete</button>
+                                </form>
                             </div>
                         </div>
+                    {{--@endforeach--}}
                     @endforeach
                 </div>
             </div>

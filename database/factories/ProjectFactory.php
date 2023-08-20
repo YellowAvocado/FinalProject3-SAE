@@ -19,9 +19,9 @@ class ProjectFactory extends Factory
         return [
             'title' => fake()->words(3,true),
             'short_title' => fake()->words(5,true),
-            'description' => fake()->text(50),
+            'description' => fake()->paragraph(7),
             'type_id' => fake()->numberBetween(1,2),
-            'image' => fake()->imageUrl(200,300,'design'),
+            'image' => fake()->imageUrl(590,300,'design'),
         ];
     }
 }

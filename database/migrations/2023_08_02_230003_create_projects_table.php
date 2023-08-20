@@ -17,11 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('short_title');
-            /*$table->foreignId('type_id');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');*/
-            $table->string('type_id')->constrained('types');
+            $table->string('type_id')->constrained('types')->nullable();
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->default('https://via.placeholder.com/590x300.png/00ddcc?text=design+illum');
             $table->timestamps();
         });
     }

@@ -15,13 +15,25 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
                         {{ __('Projects') }}
                     </x-nav-link>
+
+                    {{--<x-nav-link :href="route()" :active="request()->routeIs()">
+                        {{ __('Graphic Design Projects') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route()" :active="request()->routeIs()">
+                        {{ __('UI Design Projects') }}
+                    </x-nav-link>--}}
+
+                    <x-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
+                        {{ __('Create project') }}
+                    </x-nav-link>
+
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->

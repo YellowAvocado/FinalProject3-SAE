@@ -27,8 +27,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+/*
 Route::get('/projects',[\App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{id}',[\App\Http\Controllers\ProjectController::class, 'show'])->name('projects.show');
+Route::get('/projects/create',[\App\Http\Controllers\ProjectController::class, 'create'])->name('projects.create');
+Route::post('/projects',[\App\Http\Controllers\ProjectController::class, 'store'])->name('projects.store');*/
+
+Route::resource('/projects', \App\Http\Controllers\ProjectController::class);
 
 require __DIR__.'/auth.php';
