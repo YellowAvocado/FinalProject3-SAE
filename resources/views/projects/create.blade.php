@@ -23,7 +23,7 @@
                                 <textarea name="description" id="description"></textarea>
                             </div>
 
-                            {{--<div class="py-3"><label for="type_id" name="type_id">project type</label></div>--}}
+                            <div class="py-3"><label for="type_id" name="type_id">project type</label></div>
 
                             <select class="py-3" name="type_id">
                                 @foreach($types as $type)
@@ -31,10 +31,10 @@
                                 @endforeach
                             </select>
 
-                           {{-- <div>
-                                <div class="py-3"><label for="image" value="image" >image</label></div>
+                            <div>
+                                <div class="py-3"><label for="image"> image </label></div>
                                 <input type="file" name="image">
-                            </div>--}}
+                            </div>
 
                            <div class="py-3"> <button type="submit"> submit </button></div>
 

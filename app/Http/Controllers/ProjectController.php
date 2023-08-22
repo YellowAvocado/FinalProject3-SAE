@@ -48,28 +48,27 @@ class ProjectController extends Controller
      */
     public function store(Request $request, Project $project)
     {
+       /* $this->authorize('store',Project::class);*/
 
-        /*$request->validate([
+       $request->validate([
             'title' => 'required|string|max:150',
             'short_title' => 'required|string|max:50',
             'description' => 'required',
             'type_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);*/
+            'image' => 'required|file',
+        ]);
 
-
-
-        /*dd($request->file('image'));*/
+        $path = $request->file('image')->store('public/images');
 
         Project::create([
             'title' => $request->title,
             'short_title' =>  $request->short_title,
             'description' =>  $request->description,
             'type_id' =>  $request->type_id,
-            /*'image' => $request->file('image')->store('image', 'public'),*/
+            'images' => $path,
         ]);
 
-        return redirect()->route('projects.index')->with('success', 'New project posted!');
+        return redirect()->route('projects.index')->with('success', 'New project created!');
 
     }
 
@@ -97,9 +96,10 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
+       /* $this->authorize('edit',Project::class);*/
+
         return view('projects.edit', [
             'project' => Project::find($id),
-            'projects' => Project::all(),
             'types' => Type::all()
         ]);
     }
@@ -113,17 +113,16 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        /*$this->authorize('update',Project::class);*/
+        /*dd($request->file('image'));*/
+        $path = $request->file('image')->store('public/images');
 
         $project->update([
             'title' => $request->title,
             'short_title' => $request->short_title,
             'type_id' => $request->type_id,
             'description' => $request->description,
-            'image' => $request->image,
+            'images' => $path,
         ]);
-
-
 
         return redirect(route('projects.index'));
     }
@@ -136,6 +135,8 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
+        /*$this->authorize('destroy',Project::class);*/
+
         $project = Project::find($id);
 
         $project->delete();

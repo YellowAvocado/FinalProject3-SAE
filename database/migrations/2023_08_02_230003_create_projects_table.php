@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('short_title');
             $table->string('type_id')->constrained('types')->nullable();
             $table->text('description');
-            $table->string('image')->default('https://via.placeholder.com/590x300.png/00ddcc?text=design+illum');
+            $table->string('images');
             $table->timestamps();
         });
     }

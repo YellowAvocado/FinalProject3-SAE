@@ -5,7 +5,7 @@
                 <div class="grid justify-center p-6">
 
                     <h2>Edit {{ $project->title }} project </h2>
-                    <form action="{{route('projects.update', $project->id) }}" method="POST">
+                    <form action="{{route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
 
@@ -34,7 +34,7 @@
 
                         <div>
                             <div class="py-3"><label for="image">image</label></div>
-                            <input type="file" name="image" value="{{ $project->image }}">
+                            <input type="file" name="image" value="{{ $project->images }}">
                         </div>
 
                         <div class="py-3"> <button type="submit">submit</button></div>

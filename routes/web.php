@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,10 +23,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'can:viewAdminPanel')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 });
 /*
 Route::get('/projects',[\App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
@@ -34,5 +36,10 @@ Route::get('/projects/create',[\App\Http\Controllers\ProjectController::class, '
 Route::post('/projects',[\App\Http\Controllers\ProjectController::class, 'store'])->name('projects.store');*/
 
 Route::resource('/projects', \App\Http\Controllers\ProjectController::class);
+
+/*Route::middleware(['auth', 'can:viewAdminPanel'])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+    // Define other admin routes here
+});*/
 
 require __DIR__.'/auth.php';

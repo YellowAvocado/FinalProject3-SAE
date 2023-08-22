@@ -21,7 +21,7 @@ class ProjectFactory extends Factory
             'short_title' => fake()->words(5,true),
             'description' => fake()->paragraph(7),
             'type_id' => fake()->numberBetween(1,2),
-            'image' => fake()->imageUrl(590,300,'design'),
+            'images' => fake()->imageUrl(590,300,'design'),
         ];
     }
 }

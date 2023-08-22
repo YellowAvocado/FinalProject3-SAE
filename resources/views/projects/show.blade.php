@@ -11,7 +11,7 @@
                 <div class="grid gap-10 justify-center w-90">
                     <div class="bg-white bg-clip-border text-gray-700">
                         <div class="m-6 overflow-hidden bg-transparent bg-clip-border text-gray-700 shadow-none">
-                            <img src="{{ $projects->image }}">
+                            <img src="{{Storage::url($projects->images)}}" alt="project image">
                         </div>
                         <div class="p-6">
                             <h4 class="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-700 antialiased">
