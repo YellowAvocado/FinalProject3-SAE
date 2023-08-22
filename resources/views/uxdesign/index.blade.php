@@ -33,12 +33,6 @@
                             </div>
                             <div class="flex items-center justify-between p-6">
                                 <a href="{{ route('projects.show', $project->id ) }}">Show this project</a>
-                                <a href="{{ route('projects.edit', $project->id ) }}">Edit this project</a>
-                                <form class="text-red-700" action="{{route('projects.destroy', $project->id)}}" method="POST">
-                                    @csrf
-                                    @method("DELETE")
-                                    <button type="submit" onclick="return confirm('Do you want to delete this project');">Delete</button>
-                                </form>
                             </div>
                         </div>
                         {{--@endforeach--}}

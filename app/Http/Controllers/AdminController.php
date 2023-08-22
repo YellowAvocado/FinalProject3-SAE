@@ -22,7 +22,7 @@ class AdminController extends Controller
     {
         $this->authorize('create',Project::class);
 
-        return view ('projects.create', [
+        return view ('admin.create', [
             'projects' => Project::all(),
             'types' => Type::all()
         ]);
@@ -48,14 +48,14 @@ class AdminController extends Controller
             'images' => $path,
         ]);
 
-        return redirect()->route('projects.index')->with('success', 'New project created!');
+        return redirect()->route('admin.index')->with('success', 'New project created!');
     }
 
     public function edit($id)
     {
         $this->authorize('update', Project::class);
 
-        return view('projects.edit', [
+        return view('admin.edit', [
             'project' => Project::find($id),
             'types' => Type::all()
         ]);
@@ -74,6 +74,8 @@ class AdminController extends Controller
         ]);
 
         return redirect(route('admin.index'));
+
+
     }
 
     public function destroy($id)
