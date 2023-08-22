@@ -24,7 +24,6 @@ class ProjectController extends Controller
             'types' => Type::all()
         ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -32,7 +31,7 @@ class ProjectController extends Controller
      */
     public function create(Request $request)
     {
-       /* $this->authorize('create',Project::class);*/
+        $this->authorize('create',Project::class);
 
         return view ('projects.create', [
             'projects' => Project::all(),
@@ -96,7 +95,9 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-       /* $this->authorize('edit',Project::class);*/
+        /*$this->authorize('update',$project);*/
+
+        $this->authorize('update', Project::class);
 
         return view('projects.edit', [
             'project' => Project::find($id),
@@ -111,9 +112,8 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request,)
     {
-        /*dd($request->file('image'));*/
         $path = $request->file('image')->store('public/images');
 
         $project->update([
@@ -135,7 +135,7 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        /*$this->authorize('destroy',Project::class);*/
+        $this->authorize('update',Project::class);
 
         $project = Project::find($id);
 

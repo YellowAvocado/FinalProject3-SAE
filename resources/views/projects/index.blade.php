@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="grid justify-center gap-6 font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            <a href="{{route('graphdesign.index')}}">graphic design projects</a>
-            <a href="{{route('uxdesign.index')}}">ux/ui design projects</a>
+            <a class="hover:bg-gray-700 hover:rounded hover:text-gray-300 p-3" href="{{route('graphdesign.index')}}">graphic design projects</a>
+            <a class="hover:bg-gray-700 hover:rounded hover:text-gray-300 p-3" href="{{route('uxdesign.index')}}">ux/ui design projects</a>
         </h2>
     </x-slot>
 
@@ -36,7 +36,7 @@
                                 <form class="text-red-700" action="{{route('projects.destroy', $project->id)}}" method="POST">
                                     @csrf
                                     @method("DELETE")
-                                    <button type="submit" onclick="return confirm('Do you want to delete this project');">Delete</button>
+                                    <button type="submit" onclick="return confirm('Do you want to delete {{$project->title}} project');">Delete</button>
                                 </form>
                             </div>
                         </div>

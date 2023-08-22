@@ -27,13 +27,7 @@
                     <x-nav-link :href="route('uxdesign.index')" :active="request()->routeIs('uxdesign.index')">
                         {{ __('UX/UI design projects')  }}
                     </x-nav-link>
-
-                    <x-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
-                        {{ __('Create project') }}
-                    </x-nav-link>
-
                 </div>
-
             </div>
 
             <!-- Settings Dropdown -->
@@ -66,6 +60,11 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+
+                        <x-dropdown-link :href="route('admin.index')">
+                            {{ __('Admin panel') }}
+                        </x-dropdown-link>
+
                     </x-slot>
                 </x-dropdown>
             </div>

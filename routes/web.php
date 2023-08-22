@@ -39,6 +39,7 @@ Route::post('/projects',[\App\Http\Controllers\ProjectController::class, 'store'
 Route::resource('/projects', \App\Http\Controllers\ProjectController::class);
 Route::get('/graphdesign',[\App\Http\Controllers\GraphicDesignController::class, 'index'])->name('graphdesign.index');
 Route::get('/uxdesign',[\App\Http\Controllers\UXDesignController::class, 'index'])->name('uxdesign.index');
+Route::resource('/admin',AdminController::class);
 
 
 /*Route::middleware(['auth', 'can:viewAdminPanel'])->prefix('admin')->group(function () {
