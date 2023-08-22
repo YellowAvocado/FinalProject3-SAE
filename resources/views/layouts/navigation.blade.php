@@ -20,13 +20,13 @@
                         {{ __('Projects') }}
                     </x-nav-link>
 
-                    {{--<x-nav-link :href="route()" :active="request()->routeIs()">
-                        {{ __('Graphic Design Projects') }}
+                    <x-nav-link :href="route('graphdesign.index')" :active="request()->routeIs('graphdesign.index')">
+                        {{ __('Graphic design projects')  }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route()" :active="request()->routeIs()">
-                        {{ __('UI Design Projects') }}
-                    </x-nav-link>--}}
+                    <x-nav-link :href="route('uxdesign.index')" :active="request()->routeIs('uxdesign.index')">
+                        {{ __('UX/UI design projects')  }}
+                    </x-nav-link>
 
                     <x-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
                         {{ __('Create project') }}

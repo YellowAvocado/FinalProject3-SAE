@@ -28,6 +28,7 @@ Route::middleware('auth', 'can:viewAdminPanel')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
 });
 /*
 Route::get('/projects',[\App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
@@ -36,6 +37,9 @@ Route::get('/projects/create',[\App\Http\Controllers\ProjectController::class, '
 Route::post('/projects',[\App\Http\Controllers\ProjectController::class, 'store'])->name('projects.store');*/
 
 Route::resource('/projects', \App\Http\Controllers\ProjectController::class);
+Route::get('/graphdesign',[\App\Http\Controllers\GraphicDesignController::class, 'index'])->name('graphdesign.index');
+Route::get('/uxdesign',[\App\Http\Controllers\UXDesignController::class, 'index'])->name('uxdesign.index');
+
 
 /*Route::middleware(['auth', 'can:viewAdminPanel'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
