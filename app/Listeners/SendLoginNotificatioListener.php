@@ -28,6 +28,6 @@ class SendLoginNotificatioListener
     public function handle(UserLoggedInEvent $event)
     {
         $user = $event->user;
-        /*$user->notify(new UserLoggedInNotification($user));*/
+        $user->notify(new UserLoggedInNotification($user));
     }
 }
