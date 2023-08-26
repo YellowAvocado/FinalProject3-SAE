@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            <p>UX/UI design projects</p>
+            <p class="text-amber-600">UX/UI design projects</p>
         </h2>
     </x-slot>
 

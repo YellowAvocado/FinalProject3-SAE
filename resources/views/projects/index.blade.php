@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="grid justify-center gap-6 font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            <a class="hover:bg-gray-700 hover:rounded hover:text-gray-300 p-3" href="{{route('graphdesign.index')}}">graphic design projects</a>
-            <a class="hover:bg-gray-700 hover:rounded hover:text-gray-300 p-3" href="{{route('uxdesign.index')}}">ux/ui design projects</a>
+            <a class="text-amber-600 hover:bg-gray-100 hover:rounded p-3" href="{{route('graphdesign.index')}}">graphic design projects</a>
+            <a class="text-amber-600 hover:bg-gray-100 hover:rounded p-3" href="{{route('uxdesign.index')}}">ux/ui design projects</a>
         </h2>
     </x-slot>
 

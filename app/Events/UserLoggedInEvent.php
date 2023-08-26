@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class UserLoggedIn
+class UserLoggedInEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -28,7 +28,7 @@ class UserLoggedIn
 
     protected function authenticated($user)
     {
-        event(new UserLoggedIn($user));
+        event(new UserLoggedInEvent($user));
 
         return redirect()->intended($this->redirectPath());
     }

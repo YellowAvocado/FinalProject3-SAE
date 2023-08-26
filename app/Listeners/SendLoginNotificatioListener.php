@@ -2,12 +2,12 @@
 
 namespace App\Listeners;
 
-use App\Events\UserLoggedIn;
+use App\Events\UserLoggedInEvent;
 use App\Notifications\UserLoggedInNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendLoginNotificatio
+class SendLoginNotificatioListener
 {
     /**
      * Create the event listener.
@@ -25,9 +25,9 @@ class SendLoginNotificatio
      * @param  object  $event
      * @return void
      */
-    public function handle(UserLoggedIn $event)
+    public function handle(UserLoggedInEvent $event)
     {
         $user = $event->user;
-        $user->notify(new UserLoggedInNotification($user));
+        /*$user->notify(new UserLoggedInNotification($user));*/
     }
 }

@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified', 'login'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth', 'can:viewAdminPanel')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

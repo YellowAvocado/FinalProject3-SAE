@@ -47,11 +47,9 @@ class UserLoggedInNotification extends Notification
             ->subject('User Logged In Notification')
             ->greeting('Hello, ' . $this->user->name)
             ->line('You have successfully logged in to your account.')
+            ->line('Check out design projects.')
             ->line('Login details:')
             ->line('Username: ' . $this->user->email)
-            ->line('IP Address: ' . request()->ip())
-            ->line('Browser: ' . request()->header('User-Agent'))
-            ->line('If this was not you, please take appropriate actions.')
             ->salutation('Thank you for using our application.');
     }
 

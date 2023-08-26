@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Admin panel') }}
+        <h2 class="font-semibold text-xl text-amber-600 dark:text-gray-200 leading-tight">
+            <p class="text-amber-600">Admin page</p>
         </h2>
     </x-slot>
 
@@ -32,7 +32,7 @@
                                         @foreach($projects as $project)
                                             <tr class="border-b dark:border-neutral-500">
                                                 <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $project->id }}</td>
-                                                <td class="whitespace-nowrap px-6 py-4">{{ $project->title }}k</td>
+                                                <td class="whitespace-nowrap px-6 py-4">{{ $project->title }}</td>
                                                 <td class="whitespace-nowrap px-6 py-4">{{ $project->short_title }}</td>
                                                 <td class="whitespace-nowrap px-6 py-4">{{ $project->type->type }}</td>
                                                 <td class="whitespace-nowrap px-6 py-4"><img class="w-10" src="{{Storage::url($project->images)}}" alt="project image"></td>

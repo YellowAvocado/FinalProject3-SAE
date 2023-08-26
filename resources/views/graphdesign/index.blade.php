@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            <p>graphic design projects</p>
+        <h2 class="font-semibold text-xl text-amber-600 dark:text-gray-200 leading-tight">
+            <p class="text-amber-600">graphic design projects</p>
         </h2>
     </x-slot>
 

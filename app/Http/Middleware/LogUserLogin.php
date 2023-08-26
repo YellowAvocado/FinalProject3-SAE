@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Events\UserLoggedIn;
+use App\Events\UserLoggedInEvent;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
@@ -21,7 +21,7 @@ class LogUserLogin
         $response = $next($request);
 
         if (auth()->check()) {
-            Event::dispatch(new UserLoggedIn(auth()->user()));
+            Event::dispatch(new UserLoggedInEvent(auth()->user()));
         }
 
         return $response;
